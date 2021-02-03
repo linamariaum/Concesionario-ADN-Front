@@ -1,0 +1,7 @@
+{
+  "/trm/*": {
+    "target": "https://www.superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService",
+    "secure": true,
+    "logLevel": "debug"
+  }
+}

@@ -1,0 +1,60 @@
+<br>
+<h2 class="center">Registrar Motocicleta</h2>
+
+<form [formGroup]="motocicletaForm" class="center">
+  <table>
+    <tr><td>
+      <mat-form-field>
+        <mat-label>Placa</mat-label>
+        <input matInput id="placaMotocicleta" name="placaMotocicleta" 
+        formControlName="placa" required type="text" placeholder="Ejm: DHU43B">
+      </mat-form-field>
+      <mat-error>{{getError('placa')}}</mat-error>
+    </td></tr>
+
+    <tr><td>
+      <mat-form-field>
+        <mat-label>Marca</mat-label>
+        <input matInput id="marcaMotocicleta" name="marca" placeholder="Ejm: Kawasaki" 
+        formControlName="marca" required type="text">
+      </mat-form-field>
+      <mat-error>{{getError('marca')}}</mat-error>
+    </td></tr>
+
+    <tr><td>
+      <mat-form-field>
+        <mat-label>Modelo</mat-label>
+        <input matInput id="modeloMotocicleta" name="modelo" placeholder="Ejm: Z800" 
+        formControlName="modelo" required type="text">
+      </mat-form-field>
+      <mat-error>{{getError('modelo')}}</mat-error>
+    </td></tr>
+
+    <tr><td>
+      <mat-form-field>
+        <mat-label>Color</mat-label>
+        <input matInput id="colorMotocicleta" name="color" placeholder="Ejm: Azul" 
+        formControlName="color" required type="text">
+      </mat-form-field>
+      <mat-error>{{getError('color')}}</mat-error>
+    </td></tr>
+
+    <tr><td>
+      <mat-form-field>
+        <mat-label>Precio</mat-label>
+        <input matInput id="precioMotocicleta" name="precio" placeholder="Ejm: 15000000" 
+        formControlName="precio" required type="number" min="1000">
+      </mat-form-field>
+      <mat-error>{{getError('precio')}}</mat-error>
+    </td></tr>
+  </table>
+</form>
+<ng-container *ngIf="!motocicletaForm.invalid;else groupInvalid">
+  <button mat-raised-button type="submit" (click)="guardar()" color="primary" class="center-button">Guardar</button>
+</ng-container>
+<ng-template #groupInvalid>
+  <button mat-raised-button disabled class="center-button">Guardar</button>
+</ng-template>
+<!-- 
+<button mat-raised-button color="primary" class="center-button" *ngIf="motocicletaForm.invalid">Guardar</button> -->
+<br>
