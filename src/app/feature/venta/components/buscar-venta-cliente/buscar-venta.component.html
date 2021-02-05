@@ -1,18 +1,18 @@
 <br>
-<p>Buscar motocicleta por placa</p>
-<form [formGroup]="placaInput">
+<p>Buscar ventas de un cliente</p>
+<form [formGroup]="clienteInput">
   <table>
     <tr>
       <td>
         <mat-form-field>
-          <mat-label>Placa</mat-label>
-          <input matInput id="placaMotocicleta" name="placaMotocicleta" style="text-transform:uppercase;" 
-            formControlName="placa" required type="text" placeholder="Ejm: DHU43B">
+          <mat-label>Cédula cliente</mat-label>
+          <input matInput id="clienteVenta" name="clienteVenta"
+            formControlName="cliente" required type="number" placeholder="Ejm: 98765789">
         </mat-form-field>
-        <mat-error>{{getError('placa')}}</mat-error>
+        <mat-error>{{getError('cliente')}}</mat-error>
       </td>
       <td>      
-        <ng-container *ngIf="!placaInput.invalid;else groupInvalid">
+        <ng-container *ngIf="!clienteInput.invalid;else groupInvalid">
           <button mat-raised-button color="primary" class="center-button" style="margin-left: 2rem;" (click)="buscar()">Buscar</button>
         </ng-container>
         <ng-template #groupInvalid>
@@ -27,34 +27,39 @@
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="tabla">
       
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef>Fecha de la venta</th>
+        <td mat-cell *matCellDef="let element">{{ element.fecha | date:'medium' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="fechaEntrega">
+        <th mat-header-cell *matHeaderCellDef>Fecha entrega moto</th>
+        <td mat-cell *matCellDef="let element">{{ element.fechaEntrega | date:'medium' }}</td>
+      </ng-container>
+
       <ng-container matColumnDef="placa">
         <th mat-header-cell *matHeaderCellDef>Placa</th>
-        <td mat-cell *matCellDef="let element">{{ element.placa }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.moto.placa }}</td>
       </ng-container>
   
       <ng-container matColumnDef="marca">
         <th mat-header-cell *matHeaderCellDef>Marca</th>
-        <td mat-cell *matCellDef="let element">{{ element.marca }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.moto.marca }}</td>
       </ng-container>
   
       <ng-container matColumnDef="modelo">
         <th mat-header-cell *matHeaderCellDef>Modelo</th>
-        <td mat-cell *matCellDef="let element">{{ element.modelo }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.moto.modelo }}</td>
       </ng-container>
   
       <ng-container matColumnDef="color">
         <th mat-header-cell *matHeaderCellDef>Color</th>
-        <td mat-cell *matCellDef="let element">{{ element.color }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.moto.color }}</td>
       </ng-container>
   
       <ng-container matColumnDef="precio">
         <th mat-header-cell *matHeaderCellDef>Precio</th>
-        <td mat-cell *matCellDef="let element">{{ element.precio | currency: "$"}}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="disponible">
-        <th mat-header-cell *matHeaderCellDef>Disponible</th>
-        <td mat-cell *matCellDef="let element">{{ element.disponible }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.moto.precio | currency: "$"}}</td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>

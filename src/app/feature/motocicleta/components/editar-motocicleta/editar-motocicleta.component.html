@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content class="mat-typography">
+  <br>
+  <form [formGroup]="motocicletaForm">
+    <table>
+      <tr><td>
+        <mat-form-field>
+          <mat-label>Placa</mat-label>
+          <input matInput id="placaMotocicleta" name="placaMotocicleta" style="text-transform:uppercase;"
+          formControlName="placa" required type="text">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-label>Marca</mat-label>
+          <input matInput id="marcaMotocicleta" name="marca"
+          formControlName="marca" required type="text">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-label>Modelo</mat-label>
+          <input matInput id="modeloMotocicleta" name="modelo" 
+          formControlName="modelo" required type="text">
+        </mat-form-field>
+      </td></tr>
+  
+      <tr><td>
+        <mat-form-field>
+          <mat-label>Color</mat-label>
+          <input matInput id="colorMotocicleta" name="color" placeholder="Ejm: Azul" 
+          formControlName="color" required type="text">
+        </mat-form-field>
+        <mat-error>{{getError('color')}}</mat-error>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-label>Precio</mat-label>
+          <input matInput id="precioMotocicleta" name="precio" placeholder="Ejm: 15000000" 
+          formControlName="precio" required type="number" min="1000">
+        </mat-form-field>
+        <mat-error>{{getError('precio')}}</mat-error>
+      </td></tr>
+    </table>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button [mat-dialog-close]="data"
+      [disabled]="motocicletaForm.invalid" (click)="actualizar()" type="submit" color="primary">Actualizar</button>
+  <button mat-raised-button mat-dialog-close (click)="onNoClick()" cdkFocusInitial type="reset">Regresar</button>
+</mat-dialog-actions>

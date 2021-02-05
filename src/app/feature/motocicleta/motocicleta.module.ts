@@ -7,13 +7,18 @@ import { SharedModule } from '@shared/shared.module';
 import { MotocicletaService } from './shared/service/motocicleta.service';
 import { CrearMotocicletaComponent } from './components/crear-motocicleta/crear-motocicleta.component';
 import { BuscarMotocicletaComponent } from './components/buscar-motocicleta/buscar-motocicleta.component';
+import { EditarMotocicletaComponentDialog } from './components/editar-motocicleta/editar-motocicleta.component';
 
 @NgModule({
   declarations: [
     CrearMotocicletaComponent,
     ListarMotocicletaComponent,
     MotocicletaComponent,
-    BuscarMotocicletaComponent
+    BuscarMotocicletaComponent,
+    EditarMotocicletaComponentDialog
+  ],
+  entryComponents: [
+    EditarMotocicletaComponentDialog
   ],
   imports: [
     MotocicletaRoutingModule,

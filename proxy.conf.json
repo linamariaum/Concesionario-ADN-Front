@@ -1,7 +1,7 @@
 {
-  "/trm/*": {
-    "target": "https://www.superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService",
-    "secure": true,
+  "/": {
+    "target": "http://localhost:8080",
+    "secure": false,
     "logLevel": "debug"
   }
 }

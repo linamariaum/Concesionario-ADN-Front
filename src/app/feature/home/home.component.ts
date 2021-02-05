@@ -12,27 +12,20 @@ export class HomeComponent implements OnInit {
   constructor(private trmService: TRMService) { }
 
   ngOnInit() {
-    console.log('aqui')
-    this.obtenerTRM();
+    //this.obtenerTRM();
   }
 
   obtenerTRM() {
-    console.log('hoe')
-    this.trmService.consultar().subscribe((res) => {
-      console.log('holi');
-      console.log(res);
-    })
-
-    // return this.trmService.consultar().then(
-    //   async (data) => {
-    //     console.log(data)
-    //     if (data) {
-    //       console.log(data);
-    //     }
-    //   }, (error) => {
-    //     console.error(error);
-    //   }
-    // );
+    return this.trmService.consultar().then(
+      async (data) => {
+        console.log(data)
+        if (data) {
+          console.log(data);
+        }
+      }, (error) => {
+        console.error(error);
+      }
+    );
 
   }
 

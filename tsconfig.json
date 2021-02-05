@@ -36,6 +36,9 @@
       "@motocicleta/*": [
         "src/app/feature/motocicleta/*"
       ],
+      "@venta/*": [
+        "src/app/feature/venta/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ]

@@ -10,8 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 import { MotocicletaModule } from './feature/motocicleta/motocicleta.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { VentaModule } from '@venta/venta.module';
 
 
 @NgModule({
@@ -25,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductoModule,
     CoreModule,
     MotocicletaModule,
+    VentaModule,
     BrowserAnimationsModule
   ],
   providers: [CookieService],

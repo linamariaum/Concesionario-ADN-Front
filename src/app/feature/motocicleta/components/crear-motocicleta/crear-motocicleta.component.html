@@ -6,7 +6,7 @@
     <tr><td>
       <mat-form-field>
         <mat-label>Placa</mat-label>
-        <input matInput id="placaMotocicleta" name="placaMotocicleta" 
+        <input matInput id="placaMotocicleta" name="placaMotocicleta"style="text-transform:uppercase;"
         formControlName="placa" required type="text" placeholder="Ejm: DHU43B">
       </mat-form-field>
       <mat-error>{{getError('placa')}}</mat-error>
@@ -55,6 +55,4 @@
 <ng-template #groupInvalid>
   <button mat-raised-button disabled class="center-button">Guardar</button>
 </ng-template>
-<!-- 
-<button mat-raised-button color="primary" class="center-button" *ngIf="motocicletaForm.invalid">Guardar</button> -->
 <br>

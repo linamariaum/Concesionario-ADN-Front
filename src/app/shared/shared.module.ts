@@ -16,7 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -38,7 +38,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule],
+    MatDialogModule],
   exports: [
     CommonModule,
     HttpClientModule,
@@ -56,7 +56,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
+    MatDialogModule
   ]
 })
 export class SharedModule { }

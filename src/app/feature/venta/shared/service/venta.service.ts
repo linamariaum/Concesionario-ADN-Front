@@ -1,17 +1,16 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { retry, catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { Motocicleta } from '../model/Motocicleta';
+import { throwError } from "rxjs";
+import { catchError, retry } from "rxjs/operators";
+import { environment } from "src/environments/environment";
 
-const urlMapping = '/motos';
+const urlMapping = '/ventas';
 const urlBase = environment.apiEndpoint;
 
 @Injectable({
     providedIn: 'root', 
 })
-export class MotocicletaService {
+export class VentaService {    
     private urlApi = urlBase + urlMapping;
 
     httpOptions = {
@@ -30,29 +29,19 @@ export class MotocicletaService {
           .toPromise();
     }
 
-    async obtenerPorPlaca(placa: string): Promise<any> {
+    async obtenerPorCliente(cliente: string): Promise<any> {
         return this.http
-          .get<any>(this.urlApi + '/' + placa, this.httpOptions)
+          .get<any>(this.urlApi + '/' + cliente, this.httpOptions)
           .pipe(retry(1), catchError(this.handleError))
           .toPromise();
     }
 
-    async crear(moto: Motocicleta): Promise<any> {
-    return await this.http
-        .post<any>(this.urlApi, JSON.stringify(moto), this.httpOptions)
-        .pipe(retry(1), catchError(this.handleError))
-        .toPromise();
-    }
-
-    async actualizar(
-        placa: string,
-        moto: Motocicleta
-      ): Promise<any> {
+    async crear(placa: string, cliente: string): Promise<any> {
         return await this.http
-          .put(this.urlApi + '/' + placa, moto, this.httpOptions)
-          .pipe(retry(1), catchError(this.handleError))
-          .toPromise();
-      }
+            .post<any>(this.urlApi + '/' + placa + '/' + cliente, this.httpOptions)
+            .pipe(retry(1), catchError(this.handleError))
+            .toPromise();
+    }
 
     // Error handling
     handleError(error) {
@@ -66,5 +55,5 @@ export class MotocicletaService {
         }
         return throwError(errorMessage);
     }
-
+    
 }
