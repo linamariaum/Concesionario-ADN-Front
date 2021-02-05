@@ -3,7 +3,7 @@
   <br>
   <mat-form-field>
     <mat-label>Cliente</mat-label>
-    <input matInput id="clienteVenta" name="clienteVenta" value="{{cliente}}"
+    <input matInput id="clienteVentaDetalle" name="clienteVenta" value="{{cliente}}"
       required type="text" disabled>
     </mat-form-field>
   <form [formGroup]="ventaForm">
@@ -27,21 +27,21 @@
       <tr><td>
         <mat-form-field>
           <mat-label>Placa</mat-label>
-          <input matInput id="placaMotocicleta" name="placaMotocicleta"
+          <input matInput id="placaMotocicletaDetalle" name="placaMotocicleta"
           formControlName="placa" required type="text">
         </mat-form-field>
       </td>
       <td>
         <mat-form-field>
           <mat-label>Marca</mat-label>
-          <input matInput id="marcaMotocicleta" name="marca"
+          <input matInput id="marcaMotocicletaDetalle" name="marca"
           formControlName="marca" required type="text">
         </mat-form-field>
       </td>
       <td>
         <mat-form-field>
           <mat-label>Modelo</mat-label>
-          <input matInput id="modeloMotocicleta" name="modelo" 
+          <input matInput id="modeloMotocicletaDetalle" name="modelo" 
           formControlName="modelo" required type="text">
         </mat-form-field>
       </td></tr>
@@ -49,14 +49,14 @@
       <tr><td>
         <mat-form-field>
           <mat-label>Color</mat-label>
-          <input matInput id="colorMotocicleta" name="color" placeholder="Ejm: Azul" 
+          <input matInput id="colorMotocicletaDetalle" name="color" placeholder="Ejm: Azul" 
           formControlName="color" required type="text">
         </mat-form-field>
       </td>
       <td>
         <mat-form-field>
           <mat-label>Precio</mat-label>
-          <input matInput id="precioMotocicleta" name="precio" placeholder="Ejm: 15000000" 
+          <input matInput id="precioMotocicletaDetalle" name="precio" placeholder="Ejm: 15000000" 
           formControlName="precio" required type="number" min="1000">
         </mat-form-field>
       </td></tr>

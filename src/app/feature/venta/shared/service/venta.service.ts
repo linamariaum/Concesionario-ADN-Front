@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { throwError } from "rxjs";
+import { Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
 import { environment } from "src/environments/environment";
+import { Venta } from "../model/venta";
 
 const urlMapping = '/ventas';
 const urlBase = environment.apiEndpoint;
@@ -16,17 +17,15 @@ export class VentaService {
     httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-        }),
-        responseType: 'text' as 'json',
+        })
     };
 
     constructor(private http: HttpClient) {}
 
-    async obtenerTodas(): Promise<any> {
-        return await this.http
-          .get<any>(this.urlApi, this.httpOptions)
-          .pipe(retry(1), catchError(this.handleError))
-          .toPromise();
+    obtenerTodas(): Observable<Venta[]> {
+        return this.http
+          .get<Venta[]>(this.urlApi, this.httpOptions)
+          .pipe(retry(1), catchError(this.handleError));
     }
 
     async obtenerPorCliente(cliente: string): Promise<any> {

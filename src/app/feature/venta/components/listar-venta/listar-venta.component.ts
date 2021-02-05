@@ -23,8 +23,8 @@ export class ListarVentaComponent implements OnInit {
 
   constructor(protected ventaService: VentaService, public dialogSource: MatDialog) { }
 
-  async ngOnInit() {
-    await this.cargarVentas();
+  ngOnInit() {
+    this.cargarVentas();
   }
 
   init(datos: Venta[]) {
@@ -34,12 +34,12 @@ export class ListarVentaComponent implements OnInit {
     this.dataSource.paginator._intl.itemsPerPageLabel = 'Items por página';
   }
 
-  async cargarVentas() {
-    await this.ventaService.obtenerTodas().then(
+  cargarVentas() {
+    this.ventaService.obtenerTodas().subscribe(
       (data) => {
         if(data && data.length > 0) {
-          const resultado = JSON.parse(data);
-          resultado.forEach((element) => {
+          //const resultado = JSON.parse(data);
+          data.forEach((element) => {
             let venta: Venta = {
               fecha: element.fecha,
               moto: element.moto,

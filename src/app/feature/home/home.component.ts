@@ -7,7 +7,7 @@ import { TRMService } from './shared/service/trm.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  valorTRM: string = "$3,534.99";
+  valorTRM: string = "$3,558.63";
 
   constructor(private trmService: TRMService) { }
 

@@ -8,9 +8,14 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('Mostrar el titulo de la app', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Concesionario ADN');
+    expect(page.getTitleTextToolbar()).toEqual('Concesionario ADN');
+  });
+
+  it('Mostrar el bienvedido home', () => {
+    page.navigateTo();
+    expect(page.getTitleTextHome()).toEqual('Bienvenido');
   });
 
   afterEach(async () => {

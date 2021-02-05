@@ -50,7 +50,7 @@
   </table>
 </form>
 <ng-container *ngIf="!motocicletaForm.invalid;else groupInvalid">
-  <button mat-raised-button type="submit" (click)="guardar()" color="primary" class="center-button">Guardar</button>
+  <button mat-raised-button type="submit" (click)="guardar()" color="primary" class="center-button" id="guardarMotocicletaBoton">Guardar</button>
 </ng-container>
 <ng-template #groupInvalid>
   <button mat-raised-button disabled class="center-button">Guardar</button>
